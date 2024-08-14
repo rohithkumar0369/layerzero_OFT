@@ -1,6 +1,5 @@
-import {getUnnamedAccounts, network, ethers} from 'hardhat';
+import {network, ethers} from 'hardhat';
 import {MyOFT} from '../typechain';
-import {EndpointId} from '@layerzerolabs/lz-definitions';
 
 const privateKey = process.env.DEPOLYER_KEY as string;
 

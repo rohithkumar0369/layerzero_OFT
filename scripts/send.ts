@@ -1,8 +1,7 @@
-import {getUnnamedAccounts, network, ethers} from 'hardhat';
+import { network, ethers} from 'hardhat';
 import {MyOFT} from '../typechain';
-import {EndpointId} from '@layerzerolabs/lz-definitions';
 import {MessagingFeeStruct, SendParamStruct} from '../typechain/src/Mon.sol/MyOFT';
-import {parseUnits, zeroPad} from 'ethers/lib/utils';
+import {parseUnits} from 'ethers/lib/utils';
 
 const privateKey = process.env.DEPOLYER_KEY as string;
 
@@ -42,20 +41,6 @@ async function main() {
 		console.log(oft.address);
 		my_oft = <MyOFT>await ethers.getContractAt('MyOFT', oft.address);
 
-		const token = await my_oft.token();
-		console.log(`Token  : ${token}`);
-		const token_supply = await my_oft.totalSupply();
-		console.log(`Token supply : ${token_supply.toString()}`);
-
-		if (amount.gte(token_supply)) {
-			const mint = await my_oft.connect(signer).mint(signer.address, amount);
-			await mint.wait();
-
-			console.log(`Minted : ${mint.hash}`);
-			const token_supply = await my_oft.totalSupply();
-			console.log(`Token supply : ${token_supply.toString()}`);
-		}
-
 		const EID = getEID(destination_network);
 
 		const send_params: SendParamStruct = {
@@ -67,9 +52,6 @@ async function main() {
 			composeMsg: ethers.utils.arrayify('0x'),
 			oftCmd: ethers.utils.arrayify('0x'),
 		};
-
-		// const en = await my_oft.connect(signer).enforcedOptions(EID, '1');
-		// console.log(`Enforced ` + en );
 
 		const fee = await my_oft.connect(signer).quoteSend(send_params, false);
 
