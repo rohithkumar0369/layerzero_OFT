@@ -1,4 +1,4 @@
-# Boilerplate for ethereum solidity smart contract development
+# LayerZero OFT contract with example scripts
 
 ## INSTALL
 
