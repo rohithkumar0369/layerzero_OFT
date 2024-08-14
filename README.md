@@ -6,6 +6,13 @@
 yarn
 ```
 
+
+### `yarn compile`
+
+These will compile your contracts
+<br/><br/>
+
+
 ## TEST
 
 - One using hardhat that can leverage hardhat-deploy to reuse deployment procedures and named accounts:
@@ -14,29 +21,13 @@ yarn
 yarn test
 ```
 
-## SCRIPTS
-
-
-### `yarn compile`
-
-These will compile your contracts
-<br/><br/>
-
 ### `yarn test [mocha args...]`
 
 These will execute your tests using mocha. you can pass extra arguments to mocha
 <br/><br/>
 
-### `yarn coverage`
 
-These will produce a coverage report in the `coverage/` folder
-<br/><br/>
-
-### `yarn gas`
-
-These will produce a gas report for function used in the tests
-<br/><br/>
-
+## SCRIPTS
 
 ### `yarn execute <network> <file.ts> [args...]`
 
@@ -53,4 +44,14 @@ Behind the scene it uses `hardhat deploy` command so you can append any argument
 ### `yarn export <network> <file.json>`
 
 This will export the abi+address of deployed contract to `<file.json>`
+<br/><br/>
+
+### `yarn coverage`
+
+These will produce a coverage report in the `coverage/` folder
+<br/><br/>
+
+### `yarn gas`
+
+These will produce a gas report for function used in the tests
 <br/><br/>
