@@ -11,18 +11,6 @@
     
     => 2.fetch an estimation gas fee , we can call the `quoteSend` function to return an estimate from the Endpoint contract.
    	SendParam: what parameters should be used for the send call?
-    	`/**
-	  * @dev Struct representing token parameters for the OFT send() operation.
-	  */
-	  struct SendParam {
- 	  uint32 dstEid; // Destination endpoint ID.
- 	  bytes32 to; // Recipient address.
- 	  uint256 amountLD; // Amount to send in local decimals.
- 	  uint256 minAmountLD; // Minimum amount to send in local decimals.
- 	  bytes extraOptions; // Additional options supplied by the caller to be used in the LayerZero message.
- 	  bytes composeMsg; // The composed message for the send() operation.
- 	  bytes oftCmd; // The OFT command to be executed, unused in default OFT implementations.
-
     	_payInLzToken: what token will be used to pay for the transaction?.
      
     => 3. execute the `send` function with 3 params
