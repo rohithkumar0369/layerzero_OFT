@@ -6,6 +6,7 @@
 2.  Compile the contract in `src/`.
 3.  Deploy the contract
 4.  execute the example scripts to make OFT cross chain transfers
+   
     => 1.execute the `setPeer` before transfering OFT , you can connect your OFT deployment to different chains by calling `setPeer`.
     	The function takes 2 arguments: `_eid`, the endpoint ID for the destination chain that the other OFT contract lives on, and `_peer`, the destination 	OFT's contract address in bytes32 format.
     
