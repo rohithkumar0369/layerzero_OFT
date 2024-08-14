@@ -16,20 +16,6 @@ yarn test
 
 ## SCRIPTS
 
-Here is the list of npm scripts you can execute:
-
-Some of them relies on [./\_scripts.js](./_scripts.js) to allow parameterizing it via command line argument (have a look inside if you need modifications)
-<br/><br/>
-
-### `yarn prepare`
-
-As a standard lifecycle npm script, it is executed automatically upon install. It generate config file and typechain to get you started with type safe contract interactions
-<br/><br/>
-
-### `yarn format` and `yarn format:fix`
-
-These will format check your code. the `:fix` version will modifiy the files to match the requirement specified in `.prettierrc.`
-<br/><br/>
 
 ### `yarn compile`
 
