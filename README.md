@@ -19,6 +19,7 @@
    		2._fee: what token will be used to pay for the transaction?
                 3._refundAddress: If the transaction fails on the source chain, where should funds be refunded?
 
+### For Additional Details , please [Visit LayerZero OFT Documentations](https://docs.layerzero.network/v2/developers/evm/oft/quickstart)
 ## INSTALL
 
 ```bash
