@@ -1,5 +1,5 @@
 import {network, ethers} from 'hardhat';
-import {MyOFT} from '../typechain';
+import {MyOFT} from '../../typechain';
 import {parseUnits} from 'ethers/lib/utils';
 
 const privateKey = process.env.DEPOLYER_KEY as string;

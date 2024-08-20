@@ -1,12 +1,12 @@
 import {network, ethers} from 'hardhat';
-import {MyOFT} from '../typechain';
+import { OFTAdapter__factory} from '../../typechain';
 
 const privateKey = process.env.DEPOLYER_KEY as string;
 
 const provider = ethers.provider;
 
 const destination_network = 'polygon';
-const destination_oft_contract = ethers.utils.hexZeroPad('0x4A61A9eaDc7902D38aB3E819E428f0da108646C6', 32);
+const destination_oft_contract = ethers.utils.hexZeroPad('0x6c4ef945552FAb67813dE5dbD497a33882E0cEc7', 32);
 const getEID = (network: string) => {
 	switch (network) {
 		case 'mainnet':
@@ -29,20 +29,21 @@ async function main() {
 		let balance = await signer.getBalance();
 		console.log(`${network.name} address : ${account} with balance ${balance.toString()}`);
 
-		let my_oft: MyOFT;
-		const oft = await ethers.getContract('MyOFT');
-		console.log(oft.address);
-		my_oft = <MyOFT>await ethers.getContractAt('MyOFT', oft.address);
+		const adapter_address = (await ethers.getContract('Adapter')).address;
+
+		const adapter = OFTAdapter__factory.connect(adapter_address, signer);
 
 		const EID = getEID(destination_network);
-		const isPeer = await my_oft.connect(signer).isPeer(EID, destination_oft_contract);
+
+		const isPeer = await adapter.isPeer(EID, destination_oft_contract);
 		if (isPeer) {
 			console.log(`Peer already set to ${destination_oft_contract} `);
 			return;
 		}
-		const gas = await my_oft.connect(signer).estimateGas.setPeer(EID, destination_oft_contract);
+
+		const gas = await adapter.estimateGas.setPeer(EID, destination_oft_contract);
 		console.log(`Gas required: ${gas.toString()}`);
-		const tx = await my_oft.connect(signer).setPeer(EID, destination_oft_contract, {
+		const tx = await adapter.setPeer(EID, destination_oft_contract, {
 			gasLimit: gas,
 			gasPrice: await provider.getGasPrice(),
 		});

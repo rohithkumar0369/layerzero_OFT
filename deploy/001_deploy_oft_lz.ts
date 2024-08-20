@@ -1,10 +1,7 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
-import {parseEther} from 'ethers/lib/utils';
 import {endPoint} from '../config/endPoints';
-import {EndpointId} from '@layerzerolabs/lz-definitions';
 import {ethers} from 'hardhat';
-import {MyOFT} from '../typechain';
 import { verifyContract } from './9999_verify_all_facets';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {

@@ -1,6 +1,6 @@
 import { network, ethers} from 'hardhat';
-import {MyOFT} from '../typechain';
-import {MessagingFeeStruct, SendParamStruct} from '../typechain/src/Mon.sol/MyOFT';
+import {MyOFT} from '../../typechain';
+import {MessagingFeeStruct, SendParamStruct} from '../../typechain/src/Mon.sol/MyOFT';
 import {parseUnits} from 'ethers/lib/utils';
 
 const privateKey = process.env.DEPOLYER_KEY as string;
